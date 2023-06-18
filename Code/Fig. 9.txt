@@ -1,0 +1,267 @@
+
+
+%%
+data1=xlsread('Officebuilding_1hour.xlsx');
+datasp1=data1(60:151,:);%
+datasu1=data1(152:243,:);%
+dataau1=data1(244:334,:);%
+ww=[1:59,335:365];
+datawi1=data1(ww,:);%
+
+subplot(4,4,1)
+data=reshape(datasp1,1,92*24);
+histogram(data,'EdgeColor',[1,1,1],'LineWidth',0.1);
+axis([50 1400 0 1000]);
+set(gca,'XTick',[0 200 600 1000 1400]);
+set(gca,'XTickLabel',{'0' '200' '600' '1000' '1400' });
+set(gca,'YTick',[0 300 600 900]);
+set(gca,'YTickLabel',{'0' '300' '600' '900'});
+title('Office | Spring')
+set(gca,'ycolor',[0 0 0]);%
+set(gca,'xcolor',[0 0 0]);%
+ylabel('Count');
+ax = gca;
+set(ax,'FontName','Times New Roman','FontSize',11,'Position',[0.05 0.8 0.19 0.17]);
+ax.FontName = 'Times New Roman';
+
+subplot(4,4,5)
+data=reshape(datasu1,1,92*24);
+histogram(data,'EdgeColor',[1,1,1],'LineWidth',0.1);
+title('Office | Summer')
+set(gca,'ycolor',[0 0 0]);%
+set(gca,'xcolor',[0 0 0]);%
+ylabel('Count');
+ax = gca;
+set(ax,'FontName','Times New Roman','FontSize',11,'Position',[0.05 0.57 0.19 0.17]);
+ax.FontName = 'Times New Roman';
+
+subplot(4,4,9)
+data=reshape(dataau1,1,91*24);
+histogram(data,'EdgeColor',[1,1,1],'LineWidth',0.1);
+title('Office | Autumn')
+set(gca,'ycolor',[0 0 0]);%
+set(gca,'xcolor',[0 0 0]);%
+ylabel('Count');
+ax = gca;
+set(ax,'FontName','Times New Roman','FontSize',11,'Position',[0.05 0.34 0.19 0.17]);
+ax.FontName = 'Times New Roman';
+
+
+subplot(4,4,13)
+data=reshape(datawi1,1,90*24);
+histogram(data,'EdgeColor',[1,1,1],'LineWidth',0.1);
+axis([0 1500 0 1000]);
+set(gca,'XTick',[0 300 600 900 1200 1500]);
+set(gca,'XTickLabel',{'0' '300' '600' '900' '1200' '1500'});
+set(gca,'YTick',[0 300 600 900]);
+set(gca,'YTickLabel',{'0' '300' '600' '900'});
+title('Office | Winter')
+set(gca,'ycolor',[0 0 0]);%
+set(gca,'xcolor',[0 0 0]);%
+ylabel('Count');
+ax = gca;
+set(ax,'FontName','Times New Roman','FontSize',11,'Position',[0.05 0.11 0.19 0.17]);
+ax.FontName = 'Times New Roman';
+
+%%
+data2=xlsread('Residentialbuilding_1hour.xlsx');
+datasp2=data2(60:151,:);%
+datasu2=data2(152:243,:);%
+dataau2=data2(244:334,:);%
+datawi2=data2(ww,:);%
+
+
+subplot(4,4,2)
+data=reshape(datasp2,1,92*24);
+histogram(data,'EdgeColor',[1,1,1],'LineWidth',0.1);
+axis([90 500 0 600]);
+set(gca,'XTick',[100 200 300 400 500]);
+set(gca,'XTickLabel',{'100' '200' '300' '400' '500'});
+set(gca,'YTick',[0 200 400 600]);
+set(gca,'YTickLabel',{'0' '200' '400' '600'});
+title('Residential | Spring')
+set(gca,'ycolor',[0 0 0]);%
+set(gca,'xcolor',[0 0 0]);%
+ylabel('Count');
+ax = gca;
+set(ax,'FontName','Times New Roman','FontSize',11,'Position',[0.29 0.8 0.19 0.17]);
+ax.FontName = 'Times New Roman';
+
+
+subplot(4,4,6)
+data=reshape(datasu2,1,92*24);
+histogram(data,'EdgeColor',[1,1,1],'LineWidth',0.1);
+title('Residential | Summer')
+set(gca,'ycolor',[0 0 0]);%
+set(gca,'xcolor',[0 0 0]);%
+ylabel('Count');
+ax = gca;
+set(ax,'FontName','Times New Roman','FontSize',11,'Position',[0.29 0.57 0.19 0.17]);
+ax.FontName = 'Times New Roman'
+
+subplot(4,4,10)
+data=reshape(dataau2,1,91*24);
+histogram(data,'EdgeColor',[1,1,1],'LineWidth',0.1);
+title('Residential | Autumn')
+set(gca,'ycolor',[0 0 0]);%
+set(gca,'xcolor',[0 0 0]);%
+ylabel('Count');
+ax = gca;
+set(ax,'FontName','Times New Roman','FontSize',11,'Position',[0.29 0.34 0.19 0.17]);
+ax.FontName = 'Times New Roman';
+
+
+subplot(4,4,14)
+data=reshape(datawi2,1,90*24);
+histogram(data,'EdgeColor',[1,1,1],'LineWidth',0.1);
+title('Residential | Winter')
+set(gca,'ycolor',[0 0 0]);%
+set(gca,'xcolor',[0 0 0]);%
+ylabel('Count');
+ax = gca;
+set(ax,'FontName','Times New Roman','FontSize',11,'Position',[0.29 0.11 0.19 0.17]);
+ax.FontName = 'Times New Roman';
+
+%%
+data3=xlsread('Commercialbuilding_1hour.xlsx');
+datasp3=data3(60:151,:);%
+datasu3=data3(152:243,:);%
+dataau3=data3(244:334,:);%
+datawi3=data3(ww,:);%
+
+subplot(4,4,3)
+data=reshape(datasp3,1,92*24);
+histogram(data,'EdgeColor',[1,1,1],'LineWidth',0.1);
+axis([100 1400 0 300]);
+set(gca,'XTick',[0 200 600 1000 1400]);
+set(gca,'XTickLabel',{'0' '200' '600' '1000' '1400' });
+title('Commercial | Spring')
+set(gca,'ycolor',[0 0 0]);%
+set(gca,'xcolor',[0 0 0]);%
+ylabel('Count');
+ax = gca;
+set(ax,'FontName','Times New Roman','FontSize',11,'Position',[0.53 0.8 0.19 0.17]);
+ax.FontName = 'Times New Roman';
+
+
+subplot(4,4,7)
+data=reshape(datasu3,1,92*24);
+histogram(data,'EdgeColor',[1,1,1],'LineWidth',0.1);
+axis([100 1300 0 400]);
+set(gca,'YTick',[0 100 200 300 400]);
+set(gca,'YTickLabel',{'0' '100' '200' '300' '400'});
+title('Commercial | Summer')
+set(gca,'ycolor',[0 0 0]);%
+set(gca,'xcolor',[0 0 0]);%
+ylabel('Count');
+ax = gca;
+set(ax,'FontName','Times New Roman','FontSize',11,'Position',[0.53 0.57 0.19 0.17]);
+ax.FontName = 'Times New Roman'
+
+subplot(4,4,11)
+data=reshape(dataau3,1,91*24);
+histogram(data,'EdgeColor',[1,1,1],'LineWidth',0.1);
+axis([100 1700 0 250]);
+set(gca,'XTick',[200 600 1000 1400]);
+set(gca,'XTickLabel',{'200' '600' '1000' '1400' });
+set(gca,'YTick',[0 100 200]);
+set(gca,'YTickLabel',{'0' '100' '200'});
+title('Commercial | Autumn')
+set(gca,'ycolor',[0 0 0]);%
+set(gca,'xcolor',[0 0 0]);%
+ylabel('Count');
+ax = gca;
+set(ax,'FontName','Times New Roman','FontSize',11,'Position',[0.53 0.34 0.19 0.17]);
+ax.FontName = 'Times New Roman';
+
+
+subplot(4,4,15)
+data=reshape(datawi3,1,90*24);
+histogram(data,'EdgeColor',[1,1,1],'LineWidth',0.1);
+axis([100 2000 0 300]);
+set(gca,'XTick',[200 600 1000 1400 1800]);
+set(gca,'XTickLabel',{'200' '600' '1000' '1400' '1800' });
+title('Commercial | Winter')
+set(gca,'ycolor',[0 0 0]);%
+set(gca,'xcolor',[0 0 0]);%
+ylabel('Count');
+ax = gca;
+set(ax,'FontName','Times New Roman','FontSize',11,'Position',[0.53 0.11 0.19 0.17]);
+ax.FontName = 'Times New Roman';
+%%
+
+data4=xlsread('Publicbuilding_1hour.xlsx');
+datasp4=data4(60:151,:);%
+datasu4=data4(152:243,:);%
+dataau4=data4(244:334,:);%
+datawi4=data4(ww,:);%
+
+subplot(4,4,4)
+data=reshape(datasp4,1,92*24);
+histogram(data,'EdgeColor',[1,1,1],'LineWidth',0.1);
+axis([20 550 0 450]);
+set(gca,'XTick',[100 200 300 400 500]);
+set(gca,'XTickLabel',{'100' '200' '300' '400' '500' });
+set(gca,'YTick',[0 100 200 300 400]);
+set(gca,'YTickLabel',{'0' '100' '200' '300' '400'});
+title('Public | Spring')
+set(gca,'ycolor',[0 0 0]);%
+set(gca,'xcolor',[0 0 0]);%
+ylabel('Count');
+ax = gca;
+set(ax,'FontName','Times New Roman','FontSize',11,'Position',[0.77 0.8 0.19 0.17]);
+ax.FontName = 'Times New Roman';
+
+subplot(4,4,8)
+data=reshape(datasu4,1,92*24);
+histogram(data,'EdgeColor',[1,1,1],'LineWidth',0.1);
+axis([20 850 0 600]);
+set(gca,'XTick',[100 300 500 700]);
+set(gca,'XTickLabel',{'100' '300' '500' '700'});
+title('Public | Summer')
+set(gca,'ycolor',[0 0 0]);%
+set(gca,'xcolor',[0 0 0]);%
+ylabel('Count');
+ax = gca;
+set(ax,'FontName','Times New Roman','FontSize',11,'Position',[0.77 0.57 0.19 0.17]);
+ax.FontName = 'Times New Roman'
+
+subplot(4,4,12)
+data=reshape(dataau4,1,91*24);
+histogram(data,'EdgeColor',[1,1,1],'LineWidth',0.1);
+axis([30 600 0 500]);
+set(gca,'XTick',[100 200 300 400 500 600]);
+set(gca,'XTickLabel',{'100' '200' '300' '400' '500' '600'});
+set(gca,'YTick',[0 150 300 450]);
+set(gca,'YTickLabel',{'0' '150' '300' '450'});
+title('Public | Autumn')
+set(gca,'ycolor',[0 0 0]);%
+set(gca,'xcolor',[0 0 0]);%
+ylabel('Count');
+ax = gca;
+set(ax,'FontName','Times New Roman','FontSize',11,'Position',[0.77 0.34 0.19 0.17]);
+ax.FontName = 'Times New Roman';
+
+
+subplot(4,4,16)
+data=reshape(datawi4,1,90*24);
+histogram(data,'EdgeColor',[1,1,1],'LineWidth',0.1);
+axis([30 810 0 300]);
+set(gca,'XTick',[100 300 500 700]);
+set(gca,'XTickLabel',{'100' '300' '500' '700'});
+set(gca,'YTick',[0 100 200 300]);
+set(gca,'YTickLabel',{'0' '100' '200' '300'});
+title('Public | Winter')
+set(gca,'ycolor',[0 0 0]);%
+set(gca,'xcolor',[0 0 0]);%
+ylabel('Count');
+ax = gca;
+set(ax,'FontName','Times New Roman','FontSize',11,'Position',[0.77 0.11 0.19 0.17]);
+ax.FontName = 'Times New Roman';
+
+
+
+
+
+
+

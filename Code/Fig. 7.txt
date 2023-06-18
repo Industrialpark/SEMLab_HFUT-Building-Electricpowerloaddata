@@ -1,0 +1,124 @@
+figure
+subplot(1,4,1)
+data=xlsread('Officebuilding_1hour.xlsx');
+datasp=data(60:151,:);%
+datasu=data(152:243,:);%
+dataau=data(244:334,:);%
+ww=[1:59,335:365];
+datawi=data(ww,:);%
+
+jdatasp=mean(datasp,1);%
+jdatasu=mean(datasu,1);%
+jdataau=mean(dataau,1);%
+jdatawi=mean(datawi,1);%
+
+x=1:24;
+plot(x,jdatasp,'-x','LineWidth',1.5,'color',[0.85 0.33 0.1],'MarkerSize',3,'MarkerFaceColor',[0.85 0.33 0.1]);
+hold on
+plot(x,jdatasu,'-','LineWidth',1.5,'color',[0.49 0.18 0.56],'Marker','diamond','MarkerSize',3,'MarkerFaceColor',[0.49 0.18 0.56]);
+hold on
+plot(x,jdataau,'-^','LineWidth',1.5,'color',[0.02 0.33 0.53],'MarkerSize',3,'MarkerFaceColor',[0.02 0.33 0.53]);
+hold on
+plot(x,jdatawi,'-^','LineWidth',1.5,'color',[0.93 0.69 0.13],'Marker','o','MarkerSize',3,'MarkerFaceColor',[0.93 0.69 0.13]);
+%legend('Spring','Summer','Autumn','Winter')%%
+ylabel('Power (kW)');
+set(gca,'ycolor',[0 0 0]);%
+title('Office')
+ax = gca;
+set(ax,'FontName','Times New Roman','FontSize',13,'Position',[0.06 0.25 0.19 0.5]);
+ax.FontName = 'Times New Roman';
+
+subplot(1,4,2)
+data=xlsread('Residentialbuilding_1hour.xlsx');
+datasp=data(60:151,:);%
+datasu=data(152:243,:);%
+dataau=data(244:334,:);%
+ww=[1:59,335:365];
+datawi=data(ww,:);%
+
+jdatasp=mean(datasp,1);%
+jdatasu=mean(datasu,1);%
+jdataau=mean(dataau,1);%
+jdatawi=mean(datawi,1);%
+
+x=1:24;
+plot(x,jdatasp,'-x','LineWidth',1.5,'color',[0.85 0.33 0.1],'MarkerSize',3,'MarkerFaceColor',[0.85 0.33 0.1]);
+hold on
+plot(x,jdatasu,'-','LineWidth',1.5,'color',[0.49 0.18 0.56],'Marker','diamond','MarkerSize',3,'MarkerFaceColor',[0.49 0.18 0.56]);
+hold on
+plot(x,jdataau,'-^','LineWidth',1.5,'color',[0.02 0.33 0.53],'MarkerSize',3,'MarkerFaceColor',[0.02 0.33 0.53]);
+hold on
+plot(x,jdatawi,'-^','LineWidth',1.5,'color',[0.93 0.69 0.13],'Marker','o','MarkerSize',3,'MarkerFaceColor',[0.93 0.69 0.13]);
+%legend('Spring','Summer','Autumn','Winter')%%
+set(gca,'ycolor',[0 0 0]);%
+title('Residential')
+ax = gca;
+set(ax,'FontName','Times New Roman','FontSize',13,'Position',[0.3 0.25 0.19 0.5]);
+ax.FontName = 'Times New Roman';
+
+
+subplot(1,4,3)
+data=xlsread(Commercialbuilding_1hour.xlsx');
+datasp=data(60:151,:);%
+datasu=data(152:243,:);%
+dataau=data(244:334,:);%
+ww=[1:59,335:365];
+datawi=data(ww,:);%
+
+jdatasp=mean(datasp,1);%
+jdatasu=mean(datasu,1);%
+jdataau=mean(dataau,1);%
+jdatawi=mean(datawi,1);%
+
+x=1:24;
+plot(x,jdatasp,'-x','LineWidth',1.5,'color',[0.85 0.33 0.1],'MarkerSize',3,'MarkerFaceColor',[0.85 0.33 0.1]);
+hold on
+plot(x,jdatasu,'-','LineWidth',1.5,'color',[0.49 0.18 0.56],'Marker','diamond','MarkerSize',3,'MarkerFaceColor',[0.49 0.18 0.56]);
+hold on
+plot(x,jdataau,'-^','LineWidth',1.5,'color',[0.02 0.33 0.53],'MarkerSize',3,'MarkerFaceColor',[0.02 0.33 0.53]);
+hold on
+plot(x,jdatawi,'-^','LineWidth',1.5,'color',[0.93 0.69 0.13],'Marker','o','MarkerSize',3,'MarkerFaceColor',[0.93 0.69 0.13]);
+%legend('Spring','Summer','Autumn','Winter')%%
+set(gca,'ycolor',[0 0 0]);%
+title('Commercial')%%
+ax = gca;
+set(ax,'FontName','Times New Roman','FontSize',13,'Position',[0.54 0.25 0.19 0.5]);
+ax.FontName = 'Times New Roman';
+
+subplot(1,4,4)
+data=xlsread('Publicbuilding_1hour.xlsx');
+datasp=data(60:151,:);%
+datasu=data(152:243,:);%
+dataau=data(244:334,:);%
+ww=[1:59,335:365];
+datawi=data(ww,:);%
+
+jdatasp=mean(datasp,1);%
+jdatasu=mean(datasu,1);%
+jdataau=mean(dataau,1);%
+jdatawi=mean(datawi,1);%
+
+x=1:24;
+plot(x,jdatasp,'-x','LineWidth',1.5,'color',[0.85 0.33 0.1],'MarkerSize',3,'MarkerFaceColor',[0.85 0.33 0.1]);
+hold on
+plot(x,jdatasu,'-','LineWidth',1.5,'color',[0.49 0.18 0.56],'Marker','diamond','MarkerSize',3,'MarkerFaceColor',[0.49 0.18 0.56]);
+hold on
+plot(x,jdataau,'-^','LineWidth',1.5,'color',[0.02 0.33 0.53],'MarkerSize',3,'MarkerFaceColor',[0.02 0.33 0.53]);
+hold on
+plot(x,jdatawi,'-^','LineWidth',1.5,'color',[0.93 0.69 0.13],'Marker','o','MarkerSize',3,'MarkerFaceColor',[0.93 0.69 0.13]);
+set(gca,'ycolor',[0 0 0]);%
+title('Library')%%
+ax = gca;
+set(ax,'FontName','Times New Roman','FontSize',13,'Position',[0.78 0.25 0.19 0.5]);
+ax.FontName = 'Times New Roman';
+
+
+h=legend('Spring','Summer','Autumn','Winter');
+set(h,'Position',[0.3 0.9 0.4 0.04],'Orientation','horizont','FontName','Times New Roman','FontSize',14,'FontWeight','normal', 'EdgeColor',[1 1 1]);
+suptitle('Time (hour)');
+
+
+
+
+
+
