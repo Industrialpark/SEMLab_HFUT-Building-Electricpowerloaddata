@@ -1,0 +1,105 @@
+
+clc
+mycolorpoint=[[6 55 79];...
+    [23 110 153];...
+    [57 174 156];...
+    [198 243 99];...
+    [222 251 123];...
+    [239 255 190]];
+mycolorposition=[1 11 33 50 57 64];
+mycolormap_r=interp1(mycolorposition,mycolorpoint(:,1),1:64,'linear','extrap');
+mycolormap_g=interp1(mycolorposition,mycolorpoint(:,2),1:64,'linear','extrap');
+mycolormap_b=interp1(mycolorposition,mycolorpoint(:,3),1:64,'linear','extrap');
+mycolor=[mycolormap_r',mycolormap_g',mycolormap_b']/255;
+mycolor=round(mycolor*10^4)/10^4;%
+
+
+subplot(2,2,1)
+A36=xlsread('Officebuilding_1hour.xlsx');
+
+imagesc(A36')
+set(gca,'xtick',[1 31 59 90 120 151 181 212 243 273 304 334]);
+
+set(gca,'xticklabel',{'Jan' 'Feb' 'Mar' 'Apr' 'May' 'Jun' 'Jul' 'Aug' 'Sep' 'Oct' 'Nov' 'Dec' });
+
+
+set(gca,'ytick',[3 6 9 12 15 18 21 24]);
+set(gca,'yticklabel',{'3am' '6am' '9am' '12am' '3pm' '6pm' '9pm' '12pm' });
+set(gca,'xcolor',[0 0 0]);%
+set(gca,'ycolor',[0 0 0]);%
+ax = gca;
+set(ax,'FontName','Times New Roman','FontSize',12,'Position',[0.10 0.58 0.4 0.3]);
+title('Office','FontSize',15)
+ax.FontName = 'Times New Roman';
+colormap(mycolor);
+colorbar
+text(377, -0.5, 'kW', 'FontSize', 13,'FontName','Times New Roman','Rotation',0)
+
+subplot(2,2,2)
+A36=xlsread('Residentialbuilding_1hour.xlsx');
+
+imagesc(A36')
+set(gca,'xtick',[1 31 59 90 120 151 181 212 243 273 304 334]);
+
+set(gca,'xticklabel',{'Jan' 'Feb' 'Mar' 'Apr' 'May' 'Jun' 'Jul' 'Aug' 'Sep' 'Oct' 'Nov' 'Dec' });
+
+set(gca,'ytick',[3 6 9 12 15 18 21 24]);
+set(gca,'yticklabel',{'3am' '6am' '9am' '12am' '3pm' '6pm' '9pm' '12pm' });
+set(gca,'xcolor',[0 0 0]);%
+set(gca,'ycolor',[0 0 0]);%
+ax = gca;
+set(ax,'FontName','Times New Roman','FontSize',12,'Position',[0.58 0.58 0.4 0.3]);
+title('Residential','FontSize',15)
+ax.FontName = 'Times New Roman';
+colormap(mycolor);
+colorbar
+text(377, -0.5, 'kW', 'FontSize', 13,'FontName','Times New Roman','Rotation',0)
+
+subplot(2,2,3)
+A36=xlsread('Commercialbuilding_1hour.xlsx');
+
+imagesc(A36')
+set(gca,'xtick',[1 31 59 90 120 151 181 212 243 273 304 334]);
+
+set(gca,'xticklabel',{'Jan' 'Feb' 'Mar' 'Apr' 'May' 'Jun' 'Jul' 'Aug' 'Sep' 'Oct' 'Nov' 'Dec' });
+
+
+set(gca,'ytick',[3 6 9 12 15 18 21 24]);
+set(gca,'yticklabel',{'3am' '6am' '9am' '12am' '3pm' '6pm' '9pm' '12pm' });
+set(gca,'xcolor',[0 0 0]);%
+set(gca,'ycolor',[0 0 0]);%
+ax = gca;
+set(ax,'FontName','Times New Roman','FontSize',12,'Position',[0.10 0.18 0.4 0.3]);
+title('Commercial','FontSize',15)
+ax.FontName = 'Times New Roman';
+colormap(mycolor);
+colorbar
+text(377, -0.5, 'kW', 'FontSize', 13,'FontName','Times New Roman','Rotation',0)
+
+subplot(2,2,4)
+A36=xlsread('Publicbuilding_1hour.xlsx');
+
+imagesc(A36')
+set(gca,'xtick',[1 31 59 90 120 151 181 212 243 273 304 334]);
+
+set(gca,'xticklabel',{'Jan' 'Feb' 'Mar' 'Apr' 'May' 'Jun' 'Jul' 'Aug' 'Sep' 'Oct' 'Nov' 'Dec' });
+
+
+set(gca,'ytick',[3 6 9 12 15 18 21 24]);
+set(gca,'yticklabel',{'3am' '6am' '9am' '12am' '3pm' '6pm' '9pm' '12pm' });
+set(gca,'xcolor',[0 0 0]);%
+set(gca,'ycolor',[0 0 0]);%
+ax = gca;
+set(ax,'FontName','Times New Roman','FontSize',12,'Position',[0.58 0.18 0.4 0.3]);
+title('Public','FontSize',15)
+ax.FontName = 'Times New Roman';
+colormap(mycolor);
+colorbar
+text(377, -0.5, 'kW', 'FontSize', 13,'FontName','Times New Roman','Rotation',0)
+
+
+
+
+
+
+
