@@ -1,0 +1,46 @@
+
+subplot(2,1,1)
+x=1:8760;
+data=xlsread('Temperature.xlsx');
+data1=reshape(data',1,8760);
+plot(x,data1);
+axis([0 9000 -10 45]);
+set(gca,'XTick',[0 744 1416 2160 2880 3624 4344 5088 5832 6552 7296 8016]);
+set(gca,'XTickLabel',{'Jan' 'Feb' 'Mar' 'Apr' 'May' 'Jun' 'Jul' 'Aug' 'Sep' 'Oct' 'Nov' 'Dec' });
+set(gca,'YTick',[-10 0 10 20 30 40]);
+%text('FontSize',16,'FontName','Times New Roman','String',{'(a)'}, 'Position',[8500 30 0]);
+%txt = {'(a)'};
+%text(8500,30,txt)
+%%set(gca,'position',[0.08 0.2 0.4 0.70])
+%xlabel({'Time'});%%字型13号
+ylabel('Temperature (℃)');
+set(gca,'ycolor',[0 0 0]);%
+set(gca,'xcolor',[0 0 0]);%
+xlabel('(a)');
+ax = gca;
+set(ax,'FontName','Times New Roman','FontSize',13);
+ax.FontName = 'Times New Roman';
+
+
+subplot(2,1,2)
+x=1:8760;
+Data=xlsread('Humidity.xlsx');
+data2=reshape(Data',1,8760);
+plot(x,data2);
+axis([-5 9000 0 105]);
+set(gca,'XTick',[0 744 1416 2160 2880 3624 4344 5088 5832 6552 7296 8016]);
+set(gca,'XTickLabel',{'Jan' 'Feb' 'Mar' 'Apr' 'May' 'Jun' 'Jul' 'Aug' 'Sep' 'Oct' 'Nov' 'Dec' });
+set(gca,'YTick',[10 30 50 70 90]);
+%%set(gca,'position',[0.08 0.2 0.4 0.70])
+%text('FontSize',16,'FontName','Times New Roman','String',{'(b)'}, 'Position',[8500 20 0]);
+%xlabel({'Time'});%%
+ylabel('Humidity (%RH)');
+set(gca,'ycolor',[0 0 0]);%
+set(gca,'xcolor',[0 0 0]);%
+xlabel('(b)');
+ax = gca;
+set(ax,'FontName','Times New Roman','FontSize',13);
+ax.FontName = 'Times New Roman';
+
+
+
