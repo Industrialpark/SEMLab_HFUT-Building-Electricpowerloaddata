@@ -1,0 +1,46 @@
+##
+##linear interpolation
+data=read.csv("C:/Users/jyn_/Desktop/Office.csv")
+data=data[,-1]
+load_vector <- as.vector(data)
+ts_data <- ts(load_vector, frequency = 24)
+set.seed(1)
+ts_imputed <- na_interpolation(ts_data)
+aa=c(1,2,32,33,60,61,91,92,121,122,152,153,182,183,213,214,244,245,274,275)
+databc1=ts_imputed[aa,10]
+
+##random forest
+data=read.csv("C:/Users/jyn_/Desktop/Office.csv")
+data=data[,-1]
+library(randomForest)
+load_df <- as.data.frame(data)
+rownames(load_df) <- seq.Date(from = as.Date("2018-01-01"), by = "days", length.out = 365)
+colnames(load_df) <- paste0("hour_", 1:24)
+load_df[load_df == -1] <- NA
+imputed_df <- data.frame(matrix(NA, ncol = 24, nrow = 365))
+colnames(imputed_df) <- colnames(load_df)
+rownames(imputed_df) <- rownames(load_df)
+for (i in 1:ncol(load_df)) {
+  available_idx <- which(!is.na(load_df[, i]))
+  if (length(available_idx) > 0) {
+    rf_model <- randomForest(load_df[available_idx, i] ~ available_idx)
+    missing_idx <- which(is.na(load_df[, i]))
+    imputed_df[missing_idx, i] <- predict(rf_model, newdata = data.frame(available_idx = missing_idx))
+  }
+}
+load_df[is.na(load_df)] <- imputed_df[is.na(load_df)]
+aa=c(1,2,32,33,60,61,91,92,121,122,152,153,182,183,213,214,244,245,274,275)
+databc2=load_df[aa,10]
+
+##MICE
+data=read.csv("C:/Users/jyn_/Desktop/Office.csv")
+data=data[,-1]
+library(mice)
+matrix_with_missing <- data
+df <- as.data.frame(matrix_with_missing)
+df$.imp <- 1
+mids_object <- mice(df)
+set.seed(3)
+imputed_matrix <- complete(mids_object,maxit = 10,seed=500, method='midastouch')
+aa=c(1,2,32,33,60,61,91,92,121,122,152,153,182,183,213,214,244,245,274,275)
+databc3=imputed_matrix[aa,10]
