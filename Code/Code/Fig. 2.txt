@@ -1,0 +1,35 @@
+data1=xlsread(''Officebuilding_1hour.xlsx');
+data=[data1(235,:),data1(236,:),data1(237,:),data1(238,:),data1(239,:)];
+x=[1:68, 69:82, 83:120];
+x1=1:68; data1=data(x1);
+x2=68:83; data2=data(x2);
+x3=83:120; data3=data(x3);
+mar=4;
+li=1;
+AA1=[0 144 189]./255;
+AA2=[0.9 0.38 0.38];
+
+plot(x1,data1,'-o','LineWidth',li,'color',AA1,'MarkerSize',mar,'MarkerFaceColor',AA1);
+hold on
+plot(x2,data2,'-o','LineWidth',li,'color',AA2,'MarkerSize',mar,'MarkerFaceColor',AA2);
+hold on
+plot(x3,data3,'-o','LineWidth',li,'color',AA1,'MarkerSize',mar,'MarkerFaceColor',AA1);
+
+
+axis([0 121 0 800]);;
+set(gca,'XTick',[0 12 24 36 48 60 72 96 120]);
+set(gca,'XTickLabel',{'0' '12' '24' '36' '48' '60'  '72' '96' '120'});
+set(gca,'YTick',[0 200 400 600 800]);
+set(gca,'YTickLabel',{'0' '200' '400' '600' '800'});
+
+%title('Office | Spring')
+xlabel('Time (hour)');
+ylabel('Power (kW)');
+set(gca,'ycolor',[0 0 0]);%
+set(gca,'xcolor',[0 0 0]);%
+ax = gca;
+set(ax,'FontName','Times New Roman','FontSize',12);
+ax.FontName = 'Times New Roman';
+h=legend('True value','Estimated value');
+set(h,'FontName','Times New Roman','FontSize',12,'EdgeColor',[0.651 0.651 0.651],'Position',[0.543 0.745 0.224 0.137]);
+
